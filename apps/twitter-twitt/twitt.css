@@ -1,0 +1,159 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tag, .time, .dot, .details svg {
+    color: rgb(136, 153, 166);
+    fill: rgb(136, 153, 166);
+    display: block;
+}
+
+.right-column {
+    margin-left: 15px;
+}
+
+.profile-image {
+    border-radius: 100%;
+    width: 48px;
+    height: 48px;
+}
+
+
+.tweet .right-column .bottom-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.tweet .right-column .bottom-row .buttons>div {
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tweet .right-column .bottom-row .buttons {
+    display: flex;
+}
+
+.tweet .right-column .bottom-row .buttons>div:hover {
+    background: var(--shadow-color);
+}
+
+.tweet .right-column .bottom-row svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--main-color);
+}
+
+.tweet .right-column .bottom-row .tweet-btn {
+    width: 90px;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.post {
+    padding: 10px 5px;
+    width: 650px;
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+.post:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    transition-duration: .5s;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-header>div {
+    display: flex;
+    align-items: center;
+}
+
+.post-header .tag, .post-header .time, .dot {
+    margin-left: 4px;
+}
+
+.post .bottom-row {
+    max-width: 425px;
+    margin-top: 12px;
+    justify-content: space-between;
+}
+
+.post .bottom-row, .post .bottom-row>div {
+    display: flex;
+    align-items: center;
+    color: rgb(136, 153, 166);
+    cursor: pointer;
+}
+
+.post .bottom-row>div {
+    margin: -8px;
+}
+
+.post .bottom-row>div>div {
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post .bottom-row>div:hover>div {
+    background-color: var(--shadow-color);
+}
+
+.bottom-row>div:hover>div svg, .post .bottom-row>div:hover>span {
+    color: var(--main-color);
+    fill: currentColor;
+}
+
+.post .bottom-row>div:nth-child(2):hover>div {
+    background-color: rgba(23, 191, 99, 0.2);
+}
+
+.bottom-row>div:nth-child(2):hover>div svg, .post .bottom-row>div:nth-child(2):hover>span {
+    color: rgb(23, 191, 99);
+    fill: currentColor;
+}
+
+.post .bottom-row>div:nth-child(3):hover>div {
+    background-color: rgba(224, 36, 94, 0.2);
+}
+
+.bottom-row>div:nth-child(3):hover>div svg, .post .bottom-row>div:nth-child(3):hover>span {
+    color: rgb(224, 36, 94);
+    fill: currentColor;
+}
+
+.post .bottom-row span {
+    font-size: 13px;
+}
+
+.post .bottom-row span, .post .bottom-row svg {
+    fill: rgb(136, 153, 166);
+    color: inherit;
+    font-family: inherit;
+}
+
+.post .bottom-row svg {
+    margin: 8px;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.post .bottom-row span {
+    padding: 0 12px;
+    line-height: 20px;
+}
