@@ -1,6 +1,9 @@
 * {
     background-color: #15202B;
     color: #ffffff;
+
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -8,6 +11,40 @@ a {
     text-decoration: none;
 }
 
+img,
+svg {
+    max-width: 100%;
+    max-height: auto;
+}
+
+body {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.container-twitt {
+    border: solid 1px white;
+    width: 650px;
+    height: 400px;
+}
+
 .textGrey {
     color: #515B69;
+}
+
+.container-icons {
+    display: flex;
+
+    justify-content: space-around;
+}
+
+.icon {
+    border: solid 1px white;
+    width: 60px;
+}
+
+.icon > svg {
+    width: 60%;
 }
