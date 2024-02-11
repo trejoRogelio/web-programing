@@ -1,8 +1,15 @@
+/* psudo-Elemento */
+:root {
+    --primary-color-grey: #6E7886;
+}
+
 /* Esto es un comentario */
 * {
     background-color: #15202B;
     font-family: 'Times New Roman', Times, serif;
     color: #ffffff;
+
+    box-sizing: border-box;
 
     padding: 0;
     margin: 0;
@@ -11,6 +18,16 @@
 a {
     color: rgb(29, 161, 242);
     text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -45,5 +62,30 @@ img,svg {
 
 .twitt-icons {
     grid-column: 1/13;
-    grid-row: 11/13
+    grid-row: 11/13;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+}
+
+.icon {
+    border: red solid;
+    width: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon svg {
+    width: 50%;
+    margin-right: 5px;
+    fill: var(--primary-color-grey);
+}
+
+.icon span {
+    font-size: small;
+    color: var(--primary-color-grey);
 }

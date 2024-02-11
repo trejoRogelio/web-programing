@@ -2,6 +2,7 @@
     background-color: #15202B;
     color: #ffffff;
 
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
@@ -18,8 +19,10 @@ svg {
 }
 
 body {
+    border: 1px solid red;
     display: flex;
 
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
@@ -28,6 +31,19 @@ body {
     border: solid 1px white;
     width: 650px;
     height: 400px;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 50px;
+}
+
+.container-body {
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    display: grid;
+    grid-template-columns: 50px 1fr;
 }
 
 .textGrey {
@@ -35,6 +51,9 @@ body {
 }
 
 .container-icons {
+    grid-column: 1/2;
+    grid-row: 2/3;
+
     display: flex;
 
     justify-content: space-around;
