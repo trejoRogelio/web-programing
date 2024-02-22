@@ -1,0 +1,42 @@
+:root {
+  --gradient-color-1: rgba(25,22,84,1);
+  --gradient-color-2: rgba(67,198,172,1);
+  --gradient-color-3: rgba(25,22,84,0.5);
+  --gradient-color-4: rgba(67,198,172,0.4);
+  --white-color: #f1f1f1;
+  --black-color: #2c2b2b;
+  --font-size: 18px;
+}
+
+* {
+  font-size: var(--font-size);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  min-width: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: -moz-linear-gradient(left, var(--gradient-color-1) 0%, var(--gradient-color-2) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, var(--gradient-color-1)), color-stop(100%, var(--gradient-color-2)));
+  background: -webkit-linear-gradient(left, var(--gradient-color-1) 0%, rgba(67,198,172,1) 100%);
+  background: -o-linear-gradient(left, var(--gradient-color-1) 0%,var(--gradient-color-2) 100%);
+  background: -ms-linear-gradient(left, var(--gradient-color-1) 0%, var(--gradient-color-2) 100%);
+  background: linear-gradient(to right,var(--gradient-color-1) 0%,var(--gradient-color-2) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#191654', endColorstr='#43c6ac', GradientType=1 );
+}
+
+h1,h2,h3,h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+button:active {
+  opacity: 0.7;
+}

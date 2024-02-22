@@ -77,7 +77,7 @@ button:active {
   grid-template-areas:
     "card-info"
     "card-info"
-    "card-info"
+    "card-info" 
     "card-info"
     "card-buttons"
   ;
