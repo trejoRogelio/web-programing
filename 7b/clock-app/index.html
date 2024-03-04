@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock App</title>
+    <title>Clock | App</title>
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/clock.css">
   </head>
@@ -15,7 +15,7 @@
         </header>
         <article class="body-clock">
           <div class="box hours">
-            <span id="hours">00</span>
+            <span id="hours"></span>
           </div>
           :
           <div class="box minutes">
@@ -28,13 +28,13 @@
         </article>
         <footer class="footer-clock">
           <form class="form-alarm" id="form-alarm">
-            <input class="form-control" type="time" name="time" />
-            <button class="btn">Add Alarm</button>
+            <input type="datetime-local" name="time" class="form-control">
+            <button type="submit" class="btn">Add Alarm</button>
           </form>
         </footer>
       </section>
     </main>
 
-    <script src="assets/js/app.js "></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
