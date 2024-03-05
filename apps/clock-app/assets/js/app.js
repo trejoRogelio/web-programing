@@ -3,23 +3,24 @@ const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const formAlarm = document.getElementById('form-alarm');
 const alarm = localStorage.getItem('alarma');
-let isGrantedNotification;
+let isPermitShowNotification;
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (!('Notification' in window)) {
-    alert("El navegador No soporta las notificaciones!");
-    return;
+  if ('Notification' in window) {
+    Notification.requestPermission((request) => {
+      isPermitShowNotification = request === 'granted';
+    });
+  }
+  
+  if (localStorage.getItem('alarma') !== null) {
+    const input = formAlarm.children[0];
+    const alarm = new Date(localStorage.getItem('alarma'));
+
+    input.value = formatNumber(alarm.getHours()) + ":" + formatNumber(alarm.getMinutes());
   }
 
-  Notification.requestPermission((result) => {
-    
-  });
-
-  if (alarm)
-    setAlarm();
-  
-
   getCurrentTime();
+
 });
 
 formAlarm.addEventListener('submit', (e) => {
@@ -51,15 +52,7 @@ formAlarm.addEventListener('submit', (e) => {
   localStorage.setItem("alarma", setAlarm.toString());
 });
 
-setInterval(function() {
-  getCurrentTime();
-}, 1000);
-
 async function getCurrentTime () {
-  if (isGrantedNotification && alarm) {
-    new Notification()
-  }
-
   const currentDate = new Date();
 
   const currentHours = currentDate.getHours();
@@ -69,6 +62,8 @@ async function getCurrentTime () {
   hours.innerText = formatNumber(currentHours);
   minutes.innerText = formatNumber(currentMinutes);
   seconds.innerText = formatNumber(currentSeconds);
+
+  window.requestAnimationFrame(getCurrentTime)
 }
 
 function setAlarm() {

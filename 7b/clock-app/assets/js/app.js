@@ -2,8 +2,27 @@ const hours = document.getElementById('hours');
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const formAlarm = document.getElementById('form-alarm');
+let alarmSong = null;
+let showNotification = false;
+let notificationCounter = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
+  if ('Notification' in window) {
+    Notification.requestPermission((request) => {
+      // if (request === 'granted') {
+      //   showNotification = true;
+      // }
+      showNotification = request === 'granted';
+
+      if (!showNotification) {
+        const [input, button] = formAlarm.children;
+        input.disabled = true;
+        input.value = "";
+        button.disabled = true;
+      }
+    });
+  }
+
   if (localStorage.getItem('alarmita') !== null) {
     const input = formAlarm.children[0];
     //  yyyy-mm-ddThh:mm
@@ -17,16 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const alarmMinutes = alarmaFormato.getMinutes();
 
     input.value = `${alarmYear}-${formatNumber(alarmMonth)}-${formatNumber(alarmDay)}T${formatNumber(alarmHours)}:${alarmMinutes}`;
-  }
-
-  if ('Notification' in window) {
-    Notification.requestPermission((request) => {
-      console.log(request)
-
-      const noti = new Notification("Hola Esta es una tonificacion!!!", { 
-        body:  "asdasdasdasdsdads"
-      })
-    })
   }
 
   getCurrentTime();
@@ -59,8 +68,38 @@ formAlarm.addEventListener('submit', (e) => {
   localStorage.setItem('alarmita', setAlarm.toString());
 });
 
+const showAlarm = () => {
+  if (showNotification && localStorage.getItem('alarmita') !== null) {
+    const currentTime = new Date();
+    const alarm = new Date(localStorage.getItem('alarmita'));
+
+    const isSameYear = alarm.getFullYear() === currentTime.getFullYear();
+    const isSameMouth = alarm.getMonth() === currentTime.getMonth();
+    const isSameDay = alarm.getDate() === currentTime.getDate();
+    const isSameHours = alarm.getHours() === currentTime.getHours();
+    const isSameMinutes = alarm.getMinutes() === currentTime.getMinutes();
+
+    if (isSameYear && isSameMouth && isSameDay && isSameHours && isSameMinutes && notificationCounter <= 10) {
+      new Notification("This is an alarm!!!!!");
+      
+      if (alarmSong === null) {
+        alarmSong = new Audio('/assets/alarma.mp3').play();
+      }
+      notificationCounter++;
+    }
+
+    if (notificationCounter >= 10) {
+      formAlarm.children[0].value = "";
+      localStorage.removeItem('alarmita');
+      alarmSong.pause();
+    }
+    
+  }
+};
 
 function getCurrentTime() {
+  showAlarm();
+
   const currentDate = new Date();
   const currentHours = currentDate.getHours();
   const currentMinutes = currentDate.getMinutes();
