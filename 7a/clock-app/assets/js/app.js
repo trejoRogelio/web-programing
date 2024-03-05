@@ -4,20 +4,33 @@ const seconds = document.getElementById('seconds');
 const formAlarm = document.getElementById('form-alarm');
 let isPermitShowNotification = false;
 let isCreatedNotification = false;
-
+let notificationConter = 0;
 
 document.addEventListener('DOMContentLoaded', (e) => {
   if ('Notification' in window) {
     Notification.requestPermission((request) => {
-      isPermitShowNotification = request === 'granted';
+      if(request === 'granted') {
+        isPermitShowNotification = true;
+      } else {
+        isPermitShowNotification = false;
+      }
+
+      if (!isPermitShowNotification) {
+        const [input, button] = formAlarm.children;
+
+        input.value = "";
+        input.disabled = true;
+        button.disabled = true;
+      }
     });
+  
   }
   
   if (localStorage.getItem('alarma') !== null) {
     const input = formAlarm.children[0];
   
     const alarm = new Date(localStorage.getItem('alarma'));
-    console.log(alarm)
+    console.log(alarm);
     // hh:mm
 
     input.value = formatNumber(alarm.getHours()) + ":" + formatNumber(alarm.getMinutes());
@@ -74,24 +87,35 @@ setInterval(function() {
   getCurrentTime();
 }, 1000);
 
-function getCurrentTime () {
-  if (isPermitShowNotification) {
-    if (localStorage.getItem('alarm') !== null) {
-      let notification;
+const showAlarm = () => {
+  if (isPermitShowNotification && localStorage.getItem('alarma') !== null)  {
+    const currentTime = new Date();
+    const alarm = new Date(localStorage.getItem('alarma'));
 
-      !isCreatedNotification && (notification = new Notification());
+    const isTheSameDay = currentTime.getDate() === alarm.getDate();
+    const isTheSameHour = currentTime.getHours() === alarm.getHours();
+    const isTheSameMinutes = currentTime.getMinutes() === alarm.getMinutes();
 
-      if (!isCreatedNotification) {
-        notification = new Notification()
-      }
-
+    if (isTheSameDay && isTheSameHour && isTheSameMinutes && notificationConter <= 10) {
+      new Notification("This is the alarm!!!!");
+      notificationConter++;
     }
+
+    if (notificationConter > 10) {
+      formAlarm.children[0].value = "";
+      localStorage.removeItem('alarma');
+      notificationConter = 0;
+    }
+
+  }
 
     // new Notification("TEst!!!!", {
     //   body: "This is a test of notification!!!!!"
     // });
-  }
+};
 
+function getCurrentTime () {
+  showAlarm();
 
   const currentDate = new Date();
 
