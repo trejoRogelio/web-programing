@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+
+    <!-- Estilos Css -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="userselects">
+          <select id="select-users">
+            <option value="1">Rogelio</option>
+            <option value="2">Test 1</option>
+            <option value="3">Test 2</option>
+            <option value="4">Test 4</option>
+            <option value="5">Test 5</option>
+          </select>
+      </section>
+      <section class="user-container" id="user-container">
+          <!-- Elemento de listas como se deben de ver las tareas -->
+          <h3>Informacion del usuario seleccionado</h3>
+          <ul>
+            <li>Nombre completo: Rogelio Trejo Estrada</li>
+            <li>Email: rogelio.trejo@upa.edu.mx</li>
+          </ul>
+        </div>
+      </section>
+      <section class="task-container" id="task-container">
+        <!-- Elemento de lista, para mostar las tareas -->
+        <h3>Lista de tareas del usuario</h3>
+        <ul>
+          <li>
+            <span>Nombre de la tarea</span>
+            <input type="checkbox" checked>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
