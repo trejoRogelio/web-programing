@@ -1,0 +1,17 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "name": "Rogelio Trejo",
+      "years": 23,
+      "live": true
+    },
+    {
+      "id": 2,
+      "name": "Juanito Alcachofa!",
+      "years": 27,
+      "live": false
+    }
+  ],
+  "tareas": []
+}
