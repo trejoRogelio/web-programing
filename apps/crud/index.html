@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud App</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">CRUD - ToDo App</a>
+        </div>
+      </nav>
+    </header>
+    <main class="container-fluid mt-5">
+      <section class="row">
+        <article class="col-4">
+          <div class="card">
+            <header class="card-header">
+              <p id="form-title" class="h2 text-center text-capitalize">Insert
+                Task</p>
+            </header>
+            <form id="form-task" class="card-body">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  placeholder="Write a task title" />
+              </div>
+              <div class="mb-3">
+                <select class="form-select" name="users" id="users">
+                  <option selected disabled>Select a User</option>
+                  <hr class="border-dark" />
+                </select>
+              </div>
+              <div class="mb-3">
+                <textarea
+                  placeholder="Write a task's description"
+                  class="form-control"
+                  name="description"
+                  id="description"
+                  rows="8"></textarea>
+              </div>
+            </form>
+          </div>
+        </article>
+        <article class="col-8">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th>ID</td>
+                <th>User</td>
+                <th>Title</td>
+                <th>Description</td>
+                <th>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Rogelio</td>
+                <td>Some Title</td>
+                <td>Lorem ipsum dolor .</td>
+                <td>
+                  <button class="btn btn-secondary btn-sm">
+                    <span>Update</span> <i class="nf nf-md-pencil"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm">
+                    <span>Delete</span> <i class="nf nf-cod-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Rogelio</td>
+                <td>Some Title</td>
+                <td>Lorem ipsum dolor .</td>
+                <td>
+                  <button class="btn btn-secondary btn-sm">
+                    <span>Update</span> <i class="nf nf-md-pencil"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm">
+                    <span>Delete</span> <i class="nf nf-cod-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>
