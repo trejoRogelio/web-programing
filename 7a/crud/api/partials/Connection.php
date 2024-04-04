@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$dbName = "taskList";
+$dbName = "todoApp";
 $user = "rogelio";
 $password = "4492316585";
 $protocol = "mysql:host={$host};dbname={$dbName}";
